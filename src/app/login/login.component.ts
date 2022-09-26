@@ -21,9 +21,28 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login() {
-    var acnum = this.acno
-    var psw = this.password
+  // login() {
+  //   var acnum = this.acno
+  //   var psw = this.password
+  //   let userDetails = this.userDetails
+  //   if (acnum in userDetails) {
+  //     if (psw == userDetails[acnum]['password']) {
+  //       alert("Login Success")
+  //     }
+  //     else {
+  //       alert("Incorrect Password")
+  //     }
+  //   }
+  //   else {
+  //     alert("Invalid User Account Number")
+  //   }
+  // }
+  login(a:any,b:any) {
+    
+    
+    
+    var acnum = a.value
+    var psw = b.value
     let userDetails = this.userDetails
     if (acnum in userDetails) {
       if (psw == userDetails[acnum]['password']) {
@@ -37,15 +56,16 @@ export class LoginComponent implements OnInit {
       alert("Invalid User Account Number")
     }
   }
-  acntChange(event: any) {
-    this.acno = event.target.value;
-    console.log(event.target.value);
-
-
-  }
-  passwordChange(event: any) {
-    this.password = event.target.value
-    console.log(event.target.value);
-
-  }
 }
+//   acntChange(event: any) {
+//     this.acno = event.target.value;
+//     console.log(event.target.value);
+
+
+//   }
+//   passwordChange(event: any) {
+//     this.password = event.target.value
+//     console.log(event.target.value);
+
+//   }
+// }

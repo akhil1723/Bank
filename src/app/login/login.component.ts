@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
     1003: { acno: 1003, username: "Chris", password: 123, Balance: 80000 }
   }
 
-  constructor() { }
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,26 +40,26 @@ export class LoginComponent implements OnInit {
   //     alert("Invalid User Account Number")
   //   }
   // }
-  login(a:any,b:any) {
+//   login(a:any,b:any) {
     
     
     
-    var acnum = a.value
-    var psw = b.value
-    let userDetails = this.userDetails
-    if (acnum in userDetails) {
-      if (psw == userDetails[acnum]['password']) {
-        alert("Login Success")
-      }
-      else {
-        alert("Incorrect Password")
-      }
-    }
-    else {
-      alert("Invalid User Account Number")
-    }
-  }
-}
+//     var acnum = a.value
+//     var psw = b.value
+//     let userDetails = this.userDetails
+//     if (acnum in userDetails) {
+//       if (psw == userDetails[acnum]['password']) {
+//         alert("Login Success")
+//       }
+//       else {
+//         alert("Incorrect Password")
+//       }
+//     }
+//     else {
+//       alert("Invalid User Account Number")
+//     }
+//   }
+// }
 //   acntChange(event: any) {
 //     this.acno = event.target.value;
 //     console.log(event.target.value);
@@ -69,3 +72,21 @@ export class LoginComponent implements OnInit {
 
 //   }
 // }
+login() {
+    var acnum = this.acno
+    var psw = this.password
+    let userDetails = this.userDetails
+    if (acnum in userDetails) {
+      if (psw == userDetails[acnum]['password']) {
+        alert("Login Success")
+        this.router.navigateByUrl('dashboard')
+      }
+      else {
+        alert("Incorrect Password")
+      }
+    }
+    else {
+      alert("Invalid User Account Number")
+    }
+  }
+}

@@ -3,17 +3,21 @@
     <h1 style="text-align:center;">Sign In</h1>
     <div class="p-2 mt-2">
         <!-- <input id="user1" type="text" (change)="acntChange($event)"  [placeholder]="acnt" class="form-control"> -->
-        <input id="user1" type="text" #acno  [placeholder]="acnt" class="form-control">
+        <!-- <input id="user1" type="text" #acno  [placeholder]="acnt" class="form-control"> -->
+        <input id="user1" type="text" [placeholder]="acnt" [(ngModel)]="acno"   class="form-control">
+
     </div>
     <div class="p-2 mt-2">
         <!-- <input id="pass" type="password" (change)="passwordChange($event)" placeholder="Password" class="form-control"> -->
-        <input id="pass" type="password" #psw placeholder="Password" class="form-control">
+        <!-- <input id="pass" type="password" #psw placeholder="Password" class="form-control"> -->
+        <input id="pass"  type="password"   placeholder="Password" [(ngModel)]="password" class="form-control">
+
 
         
     </div> <br>
     <div class="p-2 mt-2">
-        <button (click)="login(acno,psw)"  id="bt">SIGN IN</button>  <br> <br>
+        <button (click)="login()"  id="bt">SIGN IN</button>  <br> <br>
     </div>
-    <h5 id="aa">Don't have an account?<a  href="" onclick="" style="text-decoration: none;">Create</a> </h5>
+    <h5 id="aa">Don't have an account?<a  href=""  style="text-decoration: none;" routerLink="register">Create</a> </h5>
     
     </div>

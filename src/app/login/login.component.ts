@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,10 @@ export class LoginComponent implements OnInit {
   acnt = "enter your ac number"
   acno = ''
   password = ''
-  userDetails: any = {
-    1000: { acno: 1000, username: "Akhil", password: 123, Balance: 20000 },
-    1001: { acno: 1001, username: "Amal", password: 123, Balance: 50000 },
-    1002: { acno: 1002, username: "Tans", password: 123, Balance: 70000 },
-    1003: { acno: 1003, username: "Chris", password: 123, Balance: 80000 }
-  }
+  
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private ds:DataService) { }
 
   ngOnInit(): void {
   }
@@ -75,18 +71,28 @@ export class LoginComponent implements OnInit {
 login() {
     var acnum = this.acno
     var psw = this.password
-    let userDetails = this.userDetails
-    if (acnum in userDetails) {
-      if (psw == userDetails[acnum]['password']) {
-        alert("Login Success")
-        this.router.navigateByUrl('dashboard')
-      }
-      else {
-        alert("Incorrect Password")
-      }
+    const result=this.ds.login(acnum,psw)
+    if(result){
+      alert("Login Successfully")
+      this.router.navigateByUrl('dashboard')
+      
     }
-    else {
-      alert("Invalid User Account Number")
+    else{
+      alert('Invalid')
     }
-  }
+  //   let userDetails = this.userDetails
+  //   if (acnum in userDetails) {
+  //     if (psw == userDetails[acnum]['password']) {
+  //       alert("Login Success")
+  //       this.router.navigateByUrl('dashboard')
+  //     }
+  //     else {
+  //       alert("Incorrect Password")
+  //     }
+  //   }
+  //   else {
+  //     alert("Invalid User Account Number")
+  //   }
+  // }
+}
 }

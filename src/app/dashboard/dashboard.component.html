@@ -1,1 +1,43 @@
-<p id="a">dashboard of bank app</p>
+<div class="p-2 mt-2">
+    <h1 style="color: rgb(153, 4, 91);">Welcome {{user}}</h1>
+    <a href="" routerLink="/transaction" style="text-decoration: none;color: rgb(7, 111, 247);" class="p-2">Check your Transaction History</a>
+</div>
+<div class="container"> <br>
+    <h1 style="text-align:center;"> WITHDRAW</h1>
+  
+    <div class="p-2 mt-2">
+        <input id="acntholder1" type="text" [(ngModel)]="userdn" placeholder="Account Number"    class="form-control">
+
+    </div>
+    <div class="p-2 mt-2">
+        <input id="holderpass"  type="password" [(ngModel)]="userdp"   placeholder="Password"  class="form-control">   
+    </div> 
+    <div class="p-2 mt-2">
+        <input id="amount"  type="text" [(ngModel)]="userda"   placeholder="Amount to Withdraw"  class="form-control">   
+    </div> <br>
+    <div class="p-2 mt-2">
+        <button (click)="withdraw()"  type="submit"  id="bt" >WITHDRAW</button>  <br> <br>
+    </div>
+
+    </div>
+
+    <div class="container"> <br>
+        <h1 style="text-align:center;">DEPOSIT</h1>
+     
+        <div class="p-2 mt-2">
+            <input id="acntholderd" type="text" [(ngModel)]="usern" placeholder="Account Number"    class="form-control">
+    
+        </div>
+        <div class="p-2 mt-2">
+            <input id="holderpassd"  type="password" [(ngModel)]="userp"   placeholder="Password"  class="form-control">   
+        </div> 
+        <div class="p-2 mt-2">
+            <input id="amountd"  type="text" [(ngModel)]="usera"   placeholder="Amount to Deposit"  class="form-control">   
+        </div> <br>
+        <div class="p-2 mt-2">
+            <button (click)="deposit()"   type="submit"  id="bt" >DEPOSIT</button>  <br> <br>
+        </div>
+   
+        </div>
+    
+

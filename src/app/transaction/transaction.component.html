@@ -1,0 +1,27 @@
+<!-- table  -->
+<!-- ngFor => structural directly => can apply directly in html access  -->
+<h1 style="text-align: center; color: rgb(0, 0, 0);">Transaction History</h1>
+
+<div class="container p-5">
+    <table class="table table-dark" style="width: 1050px;">
+        <thead>
+          <tr style="text-align: center; height: 50px;">
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Amount</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of transaction" style="text-align: center;">
+            <th scope="row">{{i.type}}</th>
+            <td>{{i.amount}}</td>
+          </tr>
+          <!-- <tr style="text-align: center;">
+            <th scope="row"></th>
+            <td></td>
+          </tr> -->
+        </tbody>
+      </table>
+      <a href="" routerLink="/dashboard" style="color: rgb(14, 245, 234); text-decoration: none ;">Home Page</a>
+    
+    </div>
